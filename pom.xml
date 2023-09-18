@@ -6,6 +6,14 @@
   <packaging>war</packaging>
   <name>Das ist aus dem Büro unten der Test</name>
   <description>Das ist aus dem Büro unten der Test</description>
+  <dependencies>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version> <!-- Aktuelle Version verwenden -->
+        <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

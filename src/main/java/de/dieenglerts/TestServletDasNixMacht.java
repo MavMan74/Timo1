@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class TestServletDasNixMacht
@@ -42,6 +43,17 @@ public class TestServletDasNixMacht extends HttpServlet {
 		
 		request.getServletContext().setAttribute("name", "Mustermann");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		//Hier versuche ich einen Besucherzähler einzubauen
+		HttpSession session = request.getSession();
+		Integer counter = (Integer) session.getAttribute("counter");
+
+		if (counter == null) {
+			counter = Integer.valueOf(0);
+		}
+		counter++;
+		session.setAttribute("counter", counter);
+		response.getWriter().append("Dies ist Besuch Nummer ").append(counter.toString());
 	}
 
 	/**
