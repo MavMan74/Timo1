@@ -11,7 +11,7 @@
 </head>
 
 <%
-String[] colors = {"Rot", "Grün", "Blau", "Gelb"};
+String[] colors = {"Red", "Green", "Blue", "Yellow"};
 String servletColor = colors[(new java.util.Random()).nextInt(colors.length)];
 %>
 
@@ -25,24 +25,25 @@ String servletColor = colors[(new java.util.Random()).nextInt(colors.length)];
 <% } %>
 <a href="<%= request.getRequestURI() %>"><h2>Nochmals versuchen...</h2></a>
 <BR>
-Das ist ein EL-Ausdruck kann nur Ausgabe! Man kann nicht Variablen definieren oder Methoden aufrufen!
+Das ist ein EL-Ausdruck der kann nur Ausgabe! Man kann nicht Variablen definieren oder Methoden aufrufen!<BR>
 ${massangaben:konvertiere("km","miles",100 )}
 
-
-
 <%@ page import="tags.ConversionClass" %>
-<BR> Und nun kommt JAVA Code, wie in jeder Java Klasse.<BR>
-Die Ausgabe des print-Befehls wird nicht im Browser, sondern in der Console des Servers gezeigt!!!!
-<% // Hier kann normaler Java-Code stehen, aber keine EL-Funktionen
+<BR><P> Und nun kommt JAVA Code, wie in jeder Java Klasse.<BR>
+
+<% // Hier bin ich im Natural JAVA mit den <% Tag- Hier kann normaler Java-Code stehen, aber keine EL-Funktionen
+	/* Das ist ein JAVA Kommentar, der NICHT im Browser angezeigt wird! */
 	float value = 100;
 	String sourceUnit = "km";
 	String targetUnit = "miles";
 	float result = value * 0.621371f; // Hier sollte die Umrechnung durchgeführt werden
-	out.println("Das ist der Result in der Console" + result);
+	// Ausgabe von println erfolgt im Browser
+	out.println("Das ist das Ergebnis für den Browser aus JAVA: " + result);
 %>
-<p>Result: ${massangaben:konvertiere(sourceUnit, targetUnit, value)}</p>
-
-<p>Result: <%= result %></p>
+<p>Ergebnis aus dem Java-Schnipsel, wenn ich es in der JSP ausgebe ist gleich dem Java println: <%= result %></p>
+<BR>
+<p>Ergebnis aus der EL: ${massangaben:konvertiere("km", "miles", 100)}</p>
+<BR>
 
 </body>
 </html>
