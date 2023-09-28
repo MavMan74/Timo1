@@ -35,6 +35,13 @@
 		<servlet-name>WebController</servlet-name>
 		<servlet-class>de.dieenglerts.WebController</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Register</display-name>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>de.dieenglerts.Register</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>TestServletDasNixMacht</servlet-name>
 		<url-pattern>/TestServletDasNixMacht</url-pattern>
@@ -42,6 +49,10 @@
 	<servlet-mapping>
 		<servlet-name>WebController</servlet-name>
 		<url-pattern>/WebController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/Register</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>MeineIndex.html</welcome-file>
